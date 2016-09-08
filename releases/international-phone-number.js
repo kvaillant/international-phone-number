@@ -34,12 +34,12 @@
             }
           }
           read = function() {
-            if (typeof element.intlTelInput("getSelectedCountryData").iso2 !== 'undefined') {
-               scope.country = element.intlTelInput("getSelectedCountryData").iso2;
+            if (typeof element.intlTelInput("getSelectedCountryData") !== 'undefined') {
+               scope.country = element.intlTelInput("getSelectedCountryData");
              } else {
                scope.country = null;
              }
-            return ctrl.$setViewValue(element.val());
+            return ctrl.$setViewValue(element.intlTelInput('getNumber'));
           };
           handleWhatsSupposedToBeAnArray = function(value) {
             if (value instanceof Array) {
