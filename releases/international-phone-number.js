@@ -82,7 +82,7 @@
           });
           scope.$watch('country', function(newValue) {
             if (newValue !== null && newValue !== void 0 && newValue !== '') {
-              return element.intlTelInput("selectCountry", newValue);
+              return element.intlTelInput("selectCountry", newValue.iso2 ? newValue.iso2 || newValue);
             }
           });
           ctrl.$formatters.push(function(value) {
