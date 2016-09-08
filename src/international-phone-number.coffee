@@ -87,8 +87,10 @@ angular.module("internationalPhoneNumber", [])
     )
 
     scope.$watch('country', (newValue) ->
+        if newValue != null && newValue != undefined && newValue.iso2
+            element.intlTelInput("selectCountry", newValue.iso2)
         if newValue != null && newValue != undefined && newValue != ''
-            element.intlTelInput("selectCountry", newValue.iso2 ? newValue.iso2 || newValue)
+            element.intlTelInput("selectCountry", newValue)
     )
 
     ctrl.$formatters.push (value) ->
