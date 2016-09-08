@@ -81,8 +81,11 @@
             });
           });
           scope.$watch('country', function(newValue) {
+            if(newValue !== null && newValue !== void 0 && newValue.iso2){
+              return newValue.iso2;
+            }
             if (newValue !== null && newValue !== void 0 && newValue !== '') {
-              return element.intlTelInput("selectCountry", newValue.iso2 ? newValue.iso2 || newValue);
+              return element.intlTelInput("selectCountry", newValue);
             }
           });
           ctrl.$formatters.push(function(value) {
