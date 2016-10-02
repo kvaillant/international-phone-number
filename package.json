@@ -23,7 +23,7 @@
     "url": "https://github.com/mareczek/international-phone-number.git"
   },
   "dependencies" : {
-    "intl-tel-input" : "^9.2.0"
+    "intl-tel-input" : "^9.0.0"
   },
   "devDependencies": {
     "grunt": "^0.4.5",
