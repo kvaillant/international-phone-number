@@ -29,6 +29,7 @@
             if (element.val() !== '') {
               $timeout(function() {
                 element.intlTelInput('setNumber', element.val());
+                scope.country = element.intlTelInput("getSelectedCountryData");
                 return ctrl.$setViewValue(element.val());
               }, 0);
             }
@@ -75,14 +76,14 @@
               }
               element.intlTelInput(options);
               if (!(options.skipUtilScriptDownload || attrs.skipUtilScriptDownload !== void 0 || options.utilsScript)) {
-                element.intlTelInput('loadUtils', '/bower_components/intl-tel-input/lib/libphonenumber/build/utils.js');
+                element.intlTelInput('loadUtils', '/node_modules/intl-tel-input/build/js/utils.js');
               }
               return watchOnce();
             });
           });
           scope.$watch('country', function(newValue) {
-            if(newValue !== null && newValue !== void 0 && newValue.iso2){
-              return newValue.iso2;
+            if(newValue !== null && newValue !== void 0 && newValue.dialCode){
+              return newValue.dialCode;
             }
             if (newValue !== null && newValue !== void 0 && newValue !== '') {
               return element.intlTelInput("selectCountry", newValue);
@@ -93,6 +94,7 @@
               return value;
             }
             element.intlTelInput('setNumber', value);
+            scope.country = element.intlTelInput("getSelectedCountryData");
             return element.val();
           });
           ctrl.$parsers.push(function(value) {
