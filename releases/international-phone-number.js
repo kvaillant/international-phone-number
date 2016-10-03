@@ -82,11 +82,12 @@
             });
           });
           scope.$watch('country', function(newValue) {
+            //console.log(newValue ? JSON.stringify(newValue) : '');
             if(newValue !== null && newValue !== void 0 && newValue.dialCode){
               return newValue.dialCode;
             }
             if (newValue !== null && newValue !== void 0 && newValue !== '') {
-              return element.intlTelInput("selectCountry", newValue);
+              return element.intlTelInput("setCountry", newValue);
             }
           });
           ctrl.$formatters.push(function(value) {
@@ -94,7 +95,6 @@
               return value;
             }
             element.intlTelInput('setNumber', value);
-            scope.country = element.intlTelInput("getSelectedCountryData");
             return element.val();
           });
           ctrl.$parsers.push(function(value) {
